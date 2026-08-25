@@ -326,6 +326,33 @@ body,
     box-shadow: var(--eb-glow-strong) !important;
 }
 
+/* ---------- A-Z picker (fix: was getting squeezed/covered by the
+   card grid, which doesn't reserve room for it by default) ---------- */
+.alphaPicker {
+    z-index: 100 !important;
+    background: var(--eb-bg-navy-strong) !important;
+    border-radius: var(--eb-radius) 0 0 var(--eb-radius) !important;
+    padding: 0.4em 0.2em !important;
+    box-shadow: var(--eb-glow) !important;
+}
+.alphaPicker-button {
+    color: var(--eb-accent-light) !important;
+    text-shadow: var(--eb-text-glow) !important;
+}
+.alphaPicker-button-active {
+    color: var(--eb-accent) !important;
+    background: var(--eb-c20) !important;
+    border-radius: 4px !important;
+}
+/* Reserve room in the grid itself so cards never sit under the picker —
+   scoped to only fire when an alphaPicker is actually present nearby,
+   so pages without one keep their normal margins */
+.itemsContainer:has(~ .alphaPicker),
+.itemsContainer:has(+ .alphaPicker) {
+    padding-right: 2.6em !important;
+    box-sizing: border-box !important;
+}
+
 /* ---------- Table rows (e.g. schedules, logs) ---------- */
 table, thead, tbody, tfoot {
     background-color: var(--eb-bg-navy) !important;
