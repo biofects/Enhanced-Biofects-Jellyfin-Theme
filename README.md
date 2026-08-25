@@ -1,25 +1,21 @@
-[![Sponsor Me](https://img.shields.io/badge/Sponsor%20Me-%F0%9F%92%AA-purple?style=for-the-badge)](https://github.com/sponsors/biofects?frequency=recurring&sponsor=biofects)
-# Enhanced Biofects — Jellyfin Theme
+<p align="center">
+   <img src="assets/Biofects-JellyFin.png" alt="Enhanced Biofects Jellyfin Theme" width="900">
+</p>
 
----
-## 💸 Donations Appreciated!
-If you find this plugin useful, please consider donating. Your support is greatly appreciated!
+<p align="center">
+   <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-00bfcf" alt="MIT License"></a>
+   <a href="https://github.com/biofects/Enhanced-Biofects-Jellyfin-Theme/issues"><img src="https://img.shields.io/github/issues/biofects/Enhanced-Biofects-Jellyfin-Theme?color=00bfcf" alt="Open issues"></a>
+   <a href="https://github.com/sponsors/biofects"><img src="https://img.shields.io/github/sponsors/biofects?color=8b5cf6" alt="Sponsor Biofects"></a>
+</p>
 
-### Sponsor me on GitHub
-[![Sponsor Me](https://img.shields.io/badge/Sponsor%20Me-%F0%9F%92%AA-purple?style=for-the-badge)](https://github.com/sponsors/biofects?frequency=recurring&sponsor=biofects) 
-
-### or
-## Paypal
-
-[![paypal](https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=TWRQVYJWC77E6)
----
+# Enhanced Biofects - Jellyfin Theme
 
 A dark, neon-cyan, sci-fi theme for Jellyfin's web UI, adapted from the
 color palette and glow aesthetic of the [Enhanced-Biofects](https://github.com/biofects/Enhanced-Biofects)
 Home Assistant theme (deep navy backgrounds, bright turquoise `#00FFFF`
 accents, glowing card borders, and a faint circuit-grid backdrop).
 
-This is a plain CSS file — Jellyfin doesn't use Home Assistant-style YAML
+This is a plain CSS file. Jellyfin doesn't use Home Assistant-style YAML
 themes, so the original theme's colors and effects have been reinterpreted
 as CSS targeting Jellyfin's web client elements (header, sidebar, cards,
 buttons, dialogs, player OSD, login page, etc).
@@ -77,8 +73,8 @@ everyone's Skin Manager store with no extra steps for the end user.
    `https://cdn.jsdelivr.net/gh/<user>/<repo>@main/Enhanced-Biofects-Jellyfin.css`
    (jsDelivr mirrors any public GitHub repo — nothing to configure).
 3. **Take a screenshot** of the theme running against a real library (the
-   home screen and a details page look best) and add it to the repo as
-   `preview.png`, so you have a `previewUrl` to point at.
+   home screen and a details page look best) and add it to the repository,
+   then use its raw GitHub URL as `previewUrl`.
 4. Open an issue on
    [Skin-Manager-Themes](https://github.com/Jellyfin-PG/Skin-Manager-Themes/issues/new/choose)
    using the **"Theme Submission"** template. Use `skins-json-entry.json`
@@ -94,6 +90,32 @@ The theme already exposes one configurable variable, **Accent Color**
 (`--accent-color`, defaults to `#00ffff`), which Skin Manager will surface
 as a color picker in its settings UI once the theme is selected — so
 users can retint the whole glow effect without touching CSS.
+
+## Support and Contributing
+
+- [Report a theme bug](https://github.com/biofects/Enhanced-Biofects-Jellyfin-Theme/issues/new?template=bug_report.yml)
+- [Request a feature](https://github.com/biofects/Enhanced-Biofects-Jellyfin-Theme/issues/new?template=feature_request.yml)
+- Read the [contribution guide](CONTRIBUTING.md) before opening a pull request.
+- Follow the [Code of Conduct](CODE_OF_CONDUCT.md) in all project spaces.
+
+Suspected vulnerabilities must not be posted publicly. Follow the private
+reporting process in the [Security Policy](SECURITY.md).
+
+For Jellyfin installation, playback, or server support unrelated to this
+theme, use the [official Jellyfin support channels](https://jellyfin.org/contact/).
+
+## Support the Project
+
+Development is supported through [GitHub Sponsors](https://github.com/sponsors/biofects)
+or [PayPal](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=TWRQVYJWC77E6).
+
+## License and Disclaimer
+
+Enhanced Biofects is available under the [MIT License](LICENSE).
+
+This is an independent community theme and is not affiliated with, endorsed
+by, or maintained by the Jellyfin project. Jellyfin and its marks belong to
+their respective owners. No Jellyfin artwork is included in the theme logo.
 
 ## Notes
 

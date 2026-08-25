@@ -1,0 +1,32 @@
+name: Feature request
+description: Suggest a theme enhancement or compatibility improvement
+title: "[Feature]: "
+labels:
+  - enhancement
+body:
+  - type: checkboxes
+    attributes:
+      label: Prerequisites
+      options:
+        - label: I searched existing issues and did not find this request.
+          required: true
+  - type: textarea
+    attributes:
+      label: Problem or opportunity
+      description: What workflow, screen, or visual treatment could be improved?
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: Proposed change
+      description: Describe the result you would like to see.
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: Alternatives considered
+      description: Describe any other CSS or design approaches you considered.
+  - type: textarea
+    attributes:
+      label: Mockups or examples
+      description: Drag screenshots or reference images here when useful.

@@ -5,7 +5,7 @@
   "version": "1.0.0",
   "jellyfin": "10.11+",
   "tags": ["dark", "colorful", "modern", "animations"],
-  "previewUrl": "https://raw.githubusercontent.com/biofects/Enhanced-Biofects-Jellyfin-Theme/main/preview.png",
+  "previewUrl": "https://raw.githubusercontent.com/biofects/Enhanced-Biofects-Jellyfin-Theme/main/Screenshots/Jellyfin-home.png",
   "sourceUrl": "https://github.com/biofects/Enhanced-Biofects-Jellyfin-Theme",
   "cssUrl": "https://cdn.jsdelivr.net/gh/biofects/Enhanced-Biofects-Jellyfin-Theme@main/Enhanced-Biofects-Jellyfin.css",
   "vars": [

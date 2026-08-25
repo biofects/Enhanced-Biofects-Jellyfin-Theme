@@ -1,0 +1,62 @@
+name: Bug report
+description: Report a visual defect, regression, or Jellyfin compatibility issue
+title: "[Bug]: "
+labels:
+  - bug
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for reporting a problem. For security issues, stop here and use the private advisory link instead.
+  - type: checkboxes
+    attributes:
+      label: Prerequisites
+      options:
+        - label: I searched existing issues for this problem.
+          required: true
+        - label: I reproduced the issue with other custom themes and CSS disabled.
+          required: true
+        - label: This report does not contain sensitive security information.
+          required: true
+  - type: textarea
+    attributes:
+      label: Problem
+      description: What happened, and what did you expect instead?
+      placeholder: Describe the visible or functional problem.
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: Reproduction steps
+      placeholder: |
+        1. Open ...
+        2. Select ...
+        3. Observe ...
+    validations:
+      required: true
+  - type: input
+    attributes:
+      label: Jellyfin server version
+      placeholder: 10.11.x
+    validations:
+      required: true
+  - type: input
+    attributes:
+      label: Jellyfin web client and browser
+      placeholder: Jellyfin Web 10.11.x, Firefox 136
+    validations:
+      required: true
+  - type: dropdown
+    attributes:
+      label: Installation method
+      options:
+        - Server-wide Custom CSS
+        - User Custom CSS
+        - Skin Manager
+        - Other
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: Screenshots and additional context
+      description: Drag screenshots here and include relevant custom CSS or browser-console errors.
