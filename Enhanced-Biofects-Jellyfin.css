@@ -46,6 +46,11 @@
     --eb-bg-navy-strong: rgba(0, 15, 30, 0.92);
     --eb-bg-black: #000000;                    /* secondary-background-color */
     --eb-bg-code: #002f2f;                     /* markdown-code-background-color */
+    --eb-grid-background:
+        linear-gradient(var(--eb-c12) 1px, transparent 1px),
+        linear-gradient(90deg, var(--eb-c12) 1px, transparent 1px),
+        radial-gradient(circle at 15% 20%, var(--eb-c12), transparent 45%),
+        radial-gradient(circle at 85% 80%, var(--eb-c10), transparent 45%);
 
     --eb-glow: 0 0 10px var(--eb-c30),
                0 0 20px var(--eb-c20),
@@ -63,11 +68,7 @@
 html,
 .backgroundContainer:not(.withBackdrop):not(.backgroundContainer-transparent) {
     background-color: var(--eb-bg-navy-solid) !important;
-    background-image:
-        linear-gradient(var(--eb-c12) 1px, transparent 1px),
-        linear-gradient(90deg, var(--eb-c12) 1px, transparent 1px),
-        radial-gradient(circle at 15% 20%, var(--eb-c12), transparent 45%),
-        radial-gradient(circle at 85% 80%, var(--eb-c10), transparent 45%) !important;
+    background-image: var(--eb-grid-background) !important;
     background-size: 42px 42px, 42px 42px, cover, cover !important;
     background-attachment: fixed !important;
 }
@@ -230,16 +231,36 @@ body,
     }
 }
 .mainDetailButtons .btnPlay {
-    background: var(--eb-accent) !important;
-    color: #001414 !important;
-    border-radius: 100px !important;
-    box-shadow: var(--eb-glow-strong) !important;
+    background: transparent !important;
+    color: var(--eb-accent) !important;
+    box-shadow: none !important;
 }
 .mainDetailButtons {
-    background: rgba(0, 15, 30, 0.6) !important;
-    border: 1px solid var(--eb-divider) !important;
-    border-radius: 100px !important;
-    backdrop-filter: blur(var(--eb-blur));
+    background: transparent !important;
+    border: 0 !important;
+    backdrop-filter: none !important;
+}
+.mainDetailButtons .detailButton {
+    background: transparent !important;
+    border-radius: 50% !important;
+    box-shadow: none !important;
+}
+.mainDetailButtons .detailButton:hover,
+.mainDetailButtons .detailButton:focus-visible {
+    background: var(--eb-c12) !important;
+    box-shadow: 0 0 6px var(--eb-c30) !important;
+}
+.mainDetailButtons .btnPlaystate[data-played="true"] .detailButton-icon,
+.mainDetailButtons .btnPlaystate.playstatebutton-played .detailButton-icon,
+.mainDetailButtons .btnPlaystate.btnUserDataOn .detailButton-icon {
+    color: #ffd54a !important;
+    filter: drop-shadow(0 0 3px rgba(255, 213, 74, 0.45));
+}
+.mainDetailButtons .btnUserRating[data-isfavorite="true"] .detailButton-icon,
+.mainDetailButtons .btnUserRating.ratingbutton-withrating .detailButton-icon,
+.mainDetailButtons .btnUserRating.btnUserDataOn .detailButton-icon {
+    color: #ff4d5a !important;
+    filter: drop-shadow(0 0 3px rgba(255, 77, 90, 0.45));
 }
 
 /* ---------- Inputs / selects / checkboxes ---------- */
@@ -269,16 +290,99 @@ body,
 }
 
 /* ---------- Detail page panels ---------- */
+body:has(.itemDetailPage:not(.hide)) .backgroundContainer.withBackdrop {
+    background: rgba(0, 0, 0, 0.24) !important;
+    opacity: 1 !important;
+}
+body:has(.itemDetailPage:not(.hide)) .backdropImage,
+.itemDetailPage .itemBackdrop {
+    filter: none !important;
+    opacity: 1 !important;
+}
+.itemDetailPage .detailPageWrapperContainer,
+.itemDetailPage .detailPagePrimaryContainer,
+.itemDetailPage .detailPageSecondaryContainer {
+    background-color: var(--eb-bg-navy-solid) !important;
+    background-image: var(--eb-grid-background) !important;
+    background-size: 42px 42px, 42px 42px, cover, cover !important;
+}
+.itemDetailPage .detailPagePrimaryContent {
+    background: transparent !important;
+}
 .detailSectionContent,
 .itemDetailsGroup,
 .trackSelections {
+    box-sizing: border-box !important;
     background: var(--eb-bg-navy-strong) !important;
     border: 1px solid var(--eb-divider) !important;
     border-radius: var(--eb-radius) !important;
     box-shadow: var(--eb-glow);
+    padding: 0.75em 1em !important;
 }
 .detailRibbon {
-    background: transparent !important;
+    background-color: var(--eb-bg-navy-solid) !important;
+    background-image: var(--eb-grid-background) !important;
+    background-size: 42px 42px, 42px 42px, cover, cover !important;
+    border-top: 1px solid var(--eb-divider) !important;
+    border-bottom: 1px solid var(--eb-divider) !important;
+}
+.layout-desktop .itemDetailPage .detailRibbon {
+    padding-left: 7.45vw !important;
+}
+.itemDetailPage .detailRibbon .infoWrapper,
+.itemDetailPage .nameContainer {
+    text-align: left !important;
+}
+.itemDetailPage .itemMiscInfo-primary {
+    display: flex !important;
+    align-items: center !important;
+    flex-wrap: nowrap !important;
+    gap: 0.65em !important;
+    margin: 0 !important;
+    white-space: nowrap;
+}
+.itemDetailPage .itemMiscInfo-primary > .mediaInfoItem {
+    box-sizing: border-box;
+    display: inline-flex !important;
+    align-items: center;
+    justify-content: center;
+    min-height: 2.25em;
+    margin: 0 !important;
+    padding: 0.32em 0.45em !important;
+    border: 1px solid var(--eb-divider) !important;
+    border-radius: 5px !important;
+    background-color: rgba(0, 15, 30, 0.82) !important;
+    font-size: 88%;
+    line-height: 1 !important;
+}
+.itemDetailPage .itemMiscInfo-primary > .mediaInfoCriticRating {
+    padding-left: 1.7em !important;
+    background-position: 0.35em center !important;
+    background-repeat: no-repeat !important;
+    background-size: 1.05em !important;
+}
+.itemDetailPage .nameContainer {
+    display: none !important;
+}
+.itemDetailPage .detailSection {
+    display: flex;
+    flex-direction: column;
+}
+.itemDetailPage .detailSection > * {
+    order: 5;
+}
+.itemDetailPage .detailSection > .detailSectionContent {
+    order: 1;
+}
+.itemDetailPage .detailSection > .itemDetailsGroup {
+    order: 2;
+}
+.itemDetailPage .detailSection > .trackSelections {
+    order: 3;
+    margin-top: 1.5em !important;
+}
+.itemDetailPage .detailSection > .recordingFields {
+    order: 4;
 }
 .itemName,
 .parentName {
