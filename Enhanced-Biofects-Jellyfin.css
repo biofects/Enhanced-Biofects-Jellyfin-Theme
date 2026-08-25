@@ -1,0 +1,339 @@
+/* ============================================================
+   ENHANCED BIOFECTS — Jellyfin Theme
+   Inspired by biofects/Enhanced-Biofects (Home Assistant theme)
+   https://github.com/biofects/Enhanced-Biofects
+
+   A dark, sci-fi, neon-cyan interface with glowing borders,
+   translucent "floating" cards and a subtle circuit-board feel —
+   reinterpreted from the original HA color palette for Jellyfin.
+
+   INSTALL (manual): Dashboard > General/Branding > Custom CSS, paste
+   this whole file, then Save. (Per-user: Settings > Display > Custom CSS)
+
+   INSTALL (Skin Manager plugin): search for "Enhanced Biofects" in the
+   Skin Manager store. Accent color is configurable from its settings.
+
+   Skin Manager variable: --accent-color (falls back to #00ffff if the
+   plugin isn't present or no value has been saved yet).
+   ============================================================ */
+
+:root {
+    /* --- Core palette, lifted from the Enhanced-Biofects HA theme --- */
+    --eb-accent: var(--accent-color, #00ffff);   /* Bright Turquoise / primary-color */
+    --eb-accent-light: color-mix(in srgb, var(--eb-accent) 65%, white);
+    --eb-accent-dim: color-mix(in srgb, var(--eb-accent) 72%, black);
+    --eb-accent-deep: color-mix(in srgb, var(--eb-accent) 50%, black);
+    --eb-divider: color-mix(in srgb, var(--eb-accent) 37%, black);
+
+    /* Translucent accent tints, derived so Skin Manager's accent-color
+       variable propagates through every glow/highlight in the theme */
+    --eb-c10: color-mix(in srgb, var(--eb-accent) 10%, transparent);
+    --eb-c12: color-mix(in srgb, var(--eb-accent) 12%, transparent);
+    --eb-c15: color-mix(in srgb, var(--eb-accent) 15%, transparent);
+    --eb-c20: color-mix(in srgb, var(--eb-accent) 20%, transparent);
+    --eb-c30: color-mix(in srgb, var(--eb-accent) 30%, transparent);
+    --eb-c35: color-mix(in srgb, var(--eb-accent) 35%, transparent);
+    --eb-c50: color-mix(in srgb, var(--eb-accent) 50%, transparent);
+    --eb-c55: color-mix(in srgb, var(--eb-accent) 55%, transparent);
+    --eb-c60: color-mix(in srgb, var(--eb-accent) 60%, transparent);
+    --eb-c65: color-mix(in srgb, var(--eb-accent) 65%, transparent);
+    --eb-c70: color-mix(in srgb, var(--eb-accent) 70%, transparent);
+    --eb-c75: color-mix(in srgb, var(--eb-accent) 75%, transparent);
+    --eb-c80: color-mix(in srgb, var(--eb-accent) 80%, transparent);
+
+    --eb-bg-navy: rgba(0, 15, 30, 0.7);        /* card-background-color */
+    --eb-bg-navy-solid: #000f1e;
+    --eb-bg-navy-strong: rgba(0, 15, 30, 0.92);
+    --eb-bg-black: #000000;                    /* secondary-background-color */
+    --eb-bg-code: #002f2f;                     /* markdown-code-background-color */
+
+    --eb-glow: 0 0 10px var(--eb-c30),
+               0 0 20px var(--eb-c20),
+               0 0 30px var(--eb-c10);
+    --eb-glow-strong: 0 0 10px var(--eb-c55),
+                       0 0 24px var(--eb-c35),
+                       0 0 36px var(--eb-c15);
+    --eb-text-glow: 0 0 5px var(--eb-c50), 0 0 10px var(--eb-c30);
+
+    --eb-radius: 10px;
+    --eb-blur: 10px;
+}
+
+/* ---------- Base page / circuit-board backdrop ---------- */
+html,
+.backgroundContainer:not(.withBackdrop):not(.backgroundContainer-transparent) {
+    background-color: var(--eb-bg-navy-solid) !important;
+    background-image:
+        linear-gradient(var(--eb-c12) 1px, transparent 1px),
+        linear-gradient(90deg, var(--eb-c12) 1px, transparent 1px),
+        radial-gradient(circle at 15% 20%, var(--eb-c12), transparent 45%),
+        radial-gradient(circle at 85% 80%, var(--eb-c10), transparent 45%) !important;
+    background-size: 42px 42px, 42px 42px, cover, cover !important;
+    background-attachment: fixed !important;
+}
+
+body,
+.mainAnimatedPages,
+.skinBody {
+    color: var(--eb-accent) !important;
+}
+
+::selection {
+    background: var(--eb-accent-deep);
+    color: #001414;
+}
+
+/* ---------- Scrollbars ---------- */
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-track { background: var(--eb-bg-navy-solid); }
+::-webkit-scrollbar-thumb {
+    background: var(--eb-accent-deep);
+    border-radius: 10px;
+    box-shadow: 0 0 6px var(--eb-c60);
+}
+::-webkit-scrollbar-thumb:hover { background: var(--eb-accent-dim); }
+
+/* ---------- Header ---------- */
+.skinHeader {
+    background: linear-gradient(rgba(0, 15, 30, 0.85), rgba(0, 15, 30, 0.6)) !important;
+    border-bottom: 1px solid var(--eb-divider) !important;
+    box-shadow: 0 2px 18px var(--eb-c15) !important;
+    backdrop-filter: blur(var(--eb-blur));
+}
+.headerTabs,
+.headerRight {
+    background-color: rgba(0, 15, 30, 0.55) !important;
+    border: 1px solid var(--eb-divider) !important;
+    border-radius: 50px !important;
+    backdrop-filter: blur(var(--eb-blur));
+}
+.pageTitle,
+.pageTitleWithLogo {
+    color: var(--eb-accent) !important;
+    text-shadow: var(--eb-text-glow) !important;
+}
+.emby-tab-button {
+    color: var(--eb-accent-light) !important;
+    opacity: 0.75;
+}
+.emby-tab-button.emby-tab-button-active {
+    color: var(--eb-accent) !important;
+    opacity: 1;
+    text-shadow: var(--eb-text-glow);
+}
+.emby-tab-button-active .emby-tab-button-underline {
+    background: var(--eb-accent) !important;
+    box-shadow: 0 0 8px var(--eb-c80) !important;
+}
+
+/* ---------- Sidebar / drawer ---------- */
+.mainDrawer {
+    background: linear-gradient(180deg, rgba(0, 15, 30, 0.95), rgba(0, 8, 16, 0.98)) !important;
+    border-right: 1px solid var(--eb-divider) !important;
+}
+.navMenuOption {
+    color: var(--eb-accent-light) !important;
+    border-radius: 6px !important;
+    transition: 0.2s !important;
+}
+.navMenuOptionIcon {
+    filter: drop-shadow(0 0 4px var(--eb-c60));
+}
+.navMenuOption:hover:not(.navMenuOption-selected) {
+    background: var(--eb-c12) !important;
+    box-shadow: inset 0 0 12px var(--eb-c15);
+}
+.navMenuOption-selected {
+    background: var(--eb-c12) !important;
+    color: var(--eb-accent) !important;
+    box-shadow: var(--eb-glow), inset 0 0 10px var(--eb-c20) !important;
+    border-left: 3px solid var(--eb-accent);
+}
+
+/* ---------- Cards ---------- */
+.card:not(.groupedCard) .cardBox,
+.cardContent {
+    border-radius: var(--eb-radius) !important;
+}
+.cardOverlayContainer,
+.cardPadder,
+.blurhash-canvas {
+    border-radius: var(--eb-radius) !important;
+}
+.card .cardBox {
+    transition: transform 0.2s ease, box-shadow 0.2s ease !important;
+}
+.card:hover .cardBox {
+    transform: translateY(-3px);
+    box-shadow: var(--eb-glow) !important;
+}
+.defaultCardBackground1,
+.defaultCardBackground2,
+.defaultCardBackground3,
+.defaultCardBackground4,
+.defaultCardBackground5 {
+    background: linear-gradient(135deg, rgba(0, 95, 95, 0.9), rgba(0, 15, 30, 0.95)) !important;
+    color: var(--eb-accent) !important;
+}
+.innerCardFooter {
+    background: rgba(0, 15, 30, 0.75) !important;
+    border-radius: var(--eb-radius) !important;
+    backdrop-filter: blur(4px);
+}
+.itemProgressBar:not(.playbackProgress):not(.transcodingProgress):not(.backgroundProgress) {
+    background: rgba(0, 95, 95, 0.4) !important;
+    border-radius: 100px !important;
+}
+.cardImageContainer .innerCardFooter .itemProgressBar .itemProgressBarForeground {
+    background: var(--eb-accent) !important;
+    box-shadow: 0 0 6px var(--eb-c80) !important;
+}
+.playedIndicator {
+    background: var(--eb-accent) !important;
+    color: #001414 !important;
+    box-shadow: 0 0 8px var(--eb-c70) !important;
+}
+.countIndicator {
+    background: var(--eb-accent-deep) !important;
+}
+
+/* ---------- Buttons ---------- */
+.emby-button.raised,
+.button-submit,
+.raised.button-submit {
+    background: rgba(0, 31, 31, 0.9) !important;
+    color: var(--eb-accent) !important;
+    border: 1px solid var(--eb-accent-deep) !important;
+    border-radius: 100px !important;
+    box-shadow: var(--eb-glow);
+    transition: 0.2s;
+}
+.emby-button.raised:hover,
+.button-submit:hover {
+    background: var(--eb-accent-deep) !important;
+    color: #001414 !important;
+    box-shadow: var(--eb-glow-strong) !important;
+}
+.raised.button-accent,
+.fab,
+.detailButton-icon {
+    color: var(--eb-accent) !important;
+}
+.paper-icon-button-light {
+    color: var(--eb-accent-light) !important;
+}
+@media (hover: hover) and (pointer: fine) {
+    .paper-icon-button-light:hover:not(:disabled) {
+        color: var(--eb-accent) !important;
+        background-color: var(--eb-c12) !important;
+        filter: drop-shadow(0 0 6px var(--eb-c70));
+    }
+}
+.mainDetailButtons .btnPlay {
+    background: var(--eb-accent) !important;
+    color: #001414 !important;
+    border-radius: 100px !important;
+    box-shadow: var(--eb-glow-strong) !important;
+}
+.mainDetailButtons {
+    background: rgba(0, 15, 30, 0.6) !important;
+    border: 1px solid var(--eb-divider) !important;
+    border-radius: 100px !important;
+    backdrop-filter: blur(var(--eb-blur));
+}
+
+/* ---------- Inputs / selects / checkboxes ---------- */
+.emby-input,
+.emby-textarea,
+.emby-select-withcolor {
+    background: rgba(0, 15, 30, 0.85) !important;
+    color: #ffffff !important;
+    border-color: var(--eb-divider) !important;
+    border-radius: var(--eb-radius) !important;
+}
+.emby-input:focus,
+.emby-textarea:focus,
+.emby-select-withcolor:focus {
+    border-color: var(--eb-accent) !important;
+    box-shadow: 0 0 8px var(--eb-c50) !important;
+}
+.inputLabelFocused,
+.selectLabelFocused,
+.textareaLabelFocused {
+    color: var(--eb-accent) !important;
+}
+.emby-checkbox:checked + span + .checkboxOutline {
+    background: var(--eb-accent) !important;
+    border-color: var(--eb-accent) !important;
+    box-shadow: 0 0 6px var(--eb-c70);
+}
+
+/* ---------- Detail page panels ---------- */
+.detailSectionContent,
+.itemDetailsGroup,
+.trackSelections {
+    background: var(--eb-bg-navy-strong) !important;
+    border: 1px solid var(--eb-divider) !important;
+    border-radius: var(--eb-radius) !important;
+    box-shadow: var(--eb-glow);
+}
+.detailRibbon {
+    background: transparent !important;
+}
+.itemName,
+.parentName {
+    color: var(--eb-accent) !important;
+    text-shadow: var(--eb-text-glow);
+}
+
+/* ---------- Dialogs / popups ---------- */
+.dialog,
+.actionSheetScroller,
+.formDialogContent {
+    background: var(--eb-bg-navy-strong) !important;
+    border: 1px solid var(--eb-divider) !important;
+    border-radius: var(--eb-radius) !important;
+    box-shadow: var(--eb-glow-strong) !important;
+    backdrop-filter: blur(var(--eb-blur));
+}
+.actionSheetTitle {
+    color: var(--eb-accent) !important;
+}
+
+/* ---------- Player / OSD ---------- */
+.upNextContainer {
+    background: var(--eb-bg-navy-strong) !important;
+    border: 1px solid var(--eb-divider) !important;
+    border-radius: var(--eb-radius) !important;
+    box-shadow: var(--eb-glow-strong) !important;
+}
+.sliderBubble {
+    background: var(--eb-bg-navy-strong) !important;
+    border-radius: var(--eb-radius) !important;
+    box-shadow: var(--eb-glow);
+}
+.mdl-slider-background-lower,
+.iconOsdProgressInner {
+    background: var(--eb-accent) !important;
+    box-shadow: 0 0 6px var(--eb-c80) !important;
+}
+
+/* ---------- Login page ---------- */
+#loginPage .padded-left.padded-right.padded-bottom-page.margin-auto-y {
+    background: var(--eb-bg-navy-strong) !important;
+    border: 1px solid var(--eb-accent-deep) !important;
+    border-radius: 20px !important;
+    box-shadow: var(--eb-glow-strong) !important;
+}
+
+/* ---------- Table rows (e.g. schedules, logs) ---------- */
+table, thead, tbody, tfoot {
+    background-color: var(--eb-bg-navy) !important;
+}
+thead tr, th {
+    background-color: rgba(0, 31, 31, 0.9) !important;
+    color: var(--eb-accent) !important;
+}
+tbody tr:nth-child(odd) { background-color: rgba(0, 15, 30, 0.85) !important; }
+tbody tr:nth-child(even) { background-color: rgba(0, 31, 31, 0.85) !important; }
+th, td { border-color: var(--eb-divider) !important; }

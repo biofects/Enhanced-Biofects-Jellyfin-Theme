@@ -1,0 +1,20 @@
+{
+  "name": "Enhanced Biofects",
+  "author": "biofects",
+  "description": "Dark, neon-cyan sci-fi theme with glowing card borders and a faint circuit-grid backdrop, adapted from the Enhanced-Biofects Home Assistant theme.",
+  "version": "1.0.0",
+  "jellyfin": "10.11+",
+  "tags": ["dark", "colorful", "modern", "animations"],
+  "previewUrl": "https://raw.githubusercontent.com/biofects/Enhanced-Biofects-Jellyfin-Theme/main/preview.png",
+  "sourceUrl": "https://github.com/biofects/Enhanced-Biofects-Jellyfin-Theme",
+  "cssUrl": "https://cdn.jsdelivr.net/gh/biofects/Enhanced-Biofects-Jellyfin-Theme@main/Enhanced-Biofects-Jellyfin.css",
+  "vars": [
+    {
+      "key": "accentColor",
+      "name": "Accent Color",
+      "description": "Primary neon highlight color used for glows, borders, and active states throughout the theme.",
+      "type": "color",
+      "default": "#00ffff"
+    }
+  ]
+}
