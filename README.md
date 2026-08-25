@@ -1,4 +1,18 @@
+[![Sponsor Me](https://img.shields.io/badge/Sponsor%20Me-%F0%9F%92%AA-purple?style=for-the-badge)](https://github.com/sponsors/biofects?frequency=recurring&sponsor=biofects)
 # Enhanced Biofects — Jellyfin Theme
+
+---
+## 💸 Donations Appreciated!
+If you find this plugin useful, please consider donating. Your support is greatly appreciated!
+
+### Sponsor me on GitHub
+[![Sponsor Me](https://img.shields.io/badge/Sponsor%20Me-%F0%9F%92%AA-purple?style=for-the-badge)](https://github.com/sponsors/biofects?frequency=recurring&sponsor=biofects) 
+
+### or
+## Paypal
+
+[![paypal](https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=TWRQVYJWC77E6)
+---
 
 A dark, neon-cyan, sci-fi theme for Jellyfin's web UI, adapted from the
 color palette and glow aesthetic of the [Enhanced-Biofects](https://github.com/biofects/Enhanced-Biofects)
