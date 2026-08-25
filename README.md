@@ -24,6 +24,20 @@ themes, so the original theme's colors and effects have been reinterpreted
 as CSS targeting Jellyfin's web client elements (header, sidebar, cards,
 buttons, dialogs, player OSD, login page, etc).
 
+## Screenshots
+
+### Home
+
+![Enhanced Biofects Jellyfin home screen](Screenshots/Jellyfin-home.png)
+
+### Movies
+
+![Enhanced Biofects Jellyfin movies library](Screenshots/Jellyfin-movies.png)
+
+### Details
+
+![Enhanced Biofects Jellyfin movie details](Screenshots/jellyfin-details.png)
+
 ## Install (server-wide, recommended)
 
 1. Sign in as an administrator and open **Dashboard**.
