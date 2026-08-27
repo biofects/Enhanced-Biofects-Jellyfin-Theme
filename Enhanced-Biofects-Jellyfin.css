@@ -467,6 +467,14 @@ body:has(.itemDetailPage:not(.hide)) .backdropImage,
     box-sizing: border-box !important;
 }
 
+/* ---------- Live TV guide ---------- */
+.liveTvPage .programCell {
+    background-color: rgba(0, 15, 30, 0.9) !important;
+}
+.liveTvPage .programCell-active {
+    background-color: rgba(0, 31, 31, 0.96) !important;
+}
+
 /* ---------- Table rows (e.g. schedules, logs) ---------- */
 table, thead, tbody, tfoot {
     background-color: var(--eb-bg-navy) !important;
