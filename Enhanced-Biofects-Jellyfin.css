@@ -161,12 +161,22 @@ body,
 .blurhash-canvas {
     border-radius: var(--eb-radius) !important;
 }
+.cardBox:not(.visualCardBox) .cardPadder {
+    background-color: transparent !important;
+    box-shadow: none !important;
+}
 .card .cardBox {
     transition: transform 0.2s ease, box-shadow 0.2s ease !important;
 }
 .card:hover .cardBox {
     transform: translateY(-3px);
     box-shadow: var(--eb-glow) !important;
+}
+.detailImageContainer .card .cardBox,
+.detailImageContainer .card:hover .cardBox {
+    transform: none !important;
+    box-shadow: none !important;
+    transition: none !important;
 }
 .defaultCardBackground1,
 .defaultCardBackground2,
