@@ -474,6 +474,12 @@ body:has(.itemDetailPage:not(.hide)) .backdropImage,
 .liveTvPage .programCell-active {
     background-color: rgba(0, 31, 31, 0.96) !important;
 }
+.programGuide .listItem {
+    background-color: rgba(0, 15, 30, 0.9) !important;
+}
+.programGuide .secondary {
+    color: rgba(255, 255, 255, 0.78) !important;
+}
 
 /* ---------- Table rows (e.g. schedules, logs) ---------- */
 table, thead, tbody, tfoot {
