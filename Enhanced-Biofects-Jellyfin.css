@@ -46,11 +46,7 @@
     --eb-bg-navy-strong: rgba(0, 15, 30, 0.92);
     --eb-bg-black: #000000;                    /* secondary-background-color */
     --eb-bg-code: #002f2f;                     /* markdown-code-background-color */
-    --eb-grid-background:
-        linear-gradient(var(--eb-c12) 1px, transparent 1px),
-        linear-gradient(90deg, var(--eb-c12) 1px, transparent 1px),
-        radial-gradient(circle at 15% 20%, var(--eb-c12), transparent 45%),
-        radial-gradient(circle at 85% 80%, var(--eb-c10), transparent 45%);
+    --eb-background-image: url("https://cdn.jsdelivr.net/gh/biofects/Enhanced-Biofects-Jellyfin-Theme@main/assets/enhanced-biofects.png");
 
     --eb-glow: 0 0 10px var(--eb-c30),
                0 0 20px var(--eb-c20),
@@ -68,8 +64,10 @@
 html,
 .backgroundContainer:not(.withBackdrop):not(.backgroundContainer-transparent) {
     background-color: var(--eb-bg-navy-solid) !important;
-    background-image: var(--eb-grid-background) !important;
-    background-size: 42px 42px, 42px 42px, cover, cover !important;
+    background-image: var(--eb-background-image) !important;
+    background-position: center !important;
+    background-repeat: no-repeat !important;
+    background-size: cover !important;
     background-attachment: fixed !important;
 }
 
@@ -313,8 +311,10 @@ body:has(.itemDetailPage:not(.hide)) .backdropImage,
 .itemDetailPage .detailPagePrimaryContainer,
 .itemDetailPage .detailPageSecondaryContainer {
     background-color: var(--eb-bg-navy-solid) !important;
-    background-image: var(--eb-grid-background) !important;
-    background-size: 42px 42px, 42px 42px, cover, cover !important;
+    background-image: var(--eb-background-image) !important;
+    background-position: center !important;
+    background-repeat: no-repeat !important;
+    background-size: cover !important;
 }
 .itemDetailPage .detailPagePrimaryContent {
     background: transparent !important;
@@ -331,8 +331,10 @@ body:has(.itemDetailPage:not(.hide)) .backdropImage,
 }
 .detailRibbon {
     background-color: var(--eb-bg-navy-solid) !important;
-    background-image: var(--eb-grid-background) !important;
-    background-size: 42px 42px, 42px 42px, cover, cover !important;
+    background-image: var(--eb-background-image) !important;
+    background-position: center !important;
+    background-repeat: no-repeat !important;
+    background-size: cover !important;
     border-top: 1px solid var(--eb-divider) !important;
     border-bottom: 1px solid var(--eb-divider) !important;
 }
